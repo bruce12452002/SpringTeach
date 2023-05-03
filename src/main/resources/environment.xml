@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean tag 要寫在 beans tag 之前-->
+    <bean id="ap" class="home.bruce.bean.AutowirePractice"/>
+
+    <beans profile="dev">
+        <bean id="d" class="home.bruce.bean.Dragon"/>
+    </beans>
+
+    <beans profile="test">
+        <bean id="p" class="home.bruce.bean.Pig"/>
+    </beans>
+
+</beans>

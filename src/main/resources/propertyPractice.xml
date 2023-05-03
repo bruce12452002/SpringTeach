@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="pp" class="home.bruce.bean.PropertyPractice">
+        <property name="strOfList">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+
+        <property name="animalOfList">
+            <list>
+                <!-- 兩個 Dragon 是不同的，如果想用相同的，可用 ref bean -->
+                <bean class="home.bruce.bean.Dragon"/>
+                <bean class="home.bruce.bean.Dragon"/>
+                <ref bean="p"/>
+            </list>
+        </property>
+
+        <property name="strOfSet">
+            <!-- java 或這裡其中一個設定成 set 就會去重-->
+            <set>
+                <value>abc</value>
+                <value>abc</value>
+                <value>abc</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="a" value="1"/>
+                <entry key="b" value="2"/>
+            </map>
+        </property>
+
+        <property name="animalOfMap">
+            <map>
+                <entry key="c" value-ref="p"/>
+                <entry key="d" value-ref="d"/>
+            </map>
+        </property>
+
+        <property name="ps">
+            <props>
+                <prop key="p1">a</prop>
+                <prop key="p2">b</prop>
+            </props>
+        </property>
+
+        <property name="arr">
+            <array>
+                <value>123</value>
+                <value>789</value>
+                <value>456</value>
+            </array>
+        </property>
+
+        <property name="strArr">
+            <array>
+                <array>
+                    <value>a</value>
+                    <value>b</value>
+                    <value>c</value>
+                </array>
+                <array>
+                    <value>d</value>
+                    <value>e</value>
+                </array>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="p" class="home.bruce.bean.Pig"/>
+    <bean id="d" class="home.bruce.bean.Dragon"/>
+
+</beans>

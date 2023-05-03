@@ -1,7 +1,7 @@
-package home.bruce.spring.teach.lesson1.service.impl;
+package home.bruce.lesson1.service.impl;
 
-import home.bruce.spring.teach.lesson1.dao.AnimalDao;
-import home.bruce.spring.teach.lesson1.service.Animal;
+import home.bruce.lesson1.dao.AnimalDao;
+import home.bruce.lesson1.service.Animal;
 import lombok.Data;
 
 @Data
@@ -15,4 +15,5 @@ public class Monkey implements Animal {
     public Monkey() {
         System.out.println("monkey init");
     }
+
 }

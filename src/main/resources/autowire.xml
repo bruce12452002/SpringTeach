@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    <bean id="ap" class="home.bruce.bean.AutowirePractice" autowire="byType" />-->
+    <bean id="ap" class="home.bruce.bean.AutowirePractice" autowire="byName"/>
+
+    <!--    byType 時，型態是 Pig 會自動注入-->
+    <!--    <bean id="p" class="home.bruce.bean.Pig" />-->
+
+    <!--    byName 時，id 或 name 其中一個是 bigPig 會自動注入-->
+    <bean id="bigPig" class="home.bruce.bean.Pig"/>
+
+
+
+    <!-- 會根據建構子的「型態」自動注入 -->
+<!--    <bean id="ap" class="home.bruce.bean.AutowirePractice" autowire="constructor"/>-->
+
+    <!-- no 和 default 都是不自動注入 -->
+    <!--    <bean id="ap" class="home.bruce.bean.AutowirePractice" autowire="default"/>-->
+</beans>

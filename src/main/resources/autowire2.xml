@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="ap" class="home.bruce.bean.AutowirePractice" autowire="byType"/>
+
+    <!--  autowire-candidate 預設是 true，byType 超過一個會報錯，這時可用這個屬性，將不想注入的給 false即可 -->
+<!--    <bean id="p1" class="home.bruce.bean.Pig" />-->
+<!--    <bean id="p2" class="home.bruce.bean.Pig" autowire-candidate="false"/>-->
+<!--    <bean id="p3" class="home.bruce.bean.Pig" autowire-candidate="false"/>-->
+
+    <!-- 如果有很多都型態一樣，那 autowire-candidate="false" 會寫很多，這時也可以使用 primary="true"，意思為最高優先權-->
+    <bean id="p1" class="home.bruce.bean.Pig" primary="true"/>
+    <bean id="p2" class="home.bruce.bean.Pig" />
+    <bean id="p3" class="home.bruce.bean.Pig" />
+</beans>

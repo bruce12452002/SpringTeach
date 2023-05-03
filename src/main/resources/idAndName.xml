@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="home.bruce.lesson1.service.impl.Monkey" />
+<!--    <bean name="z,y,x" class="home.bruce.lesson1.service.impl.Monkey" />-->
+<!--    <bean id="m" name="z,y,x" class="home.bruce.lesson1.service.impl.Monkey" />-->
+
+    <!-- 除了用 name 取別名，也可用 alias tag 取別名，name 對應到 bean tag 的 id 或 name-->
+<!--    <alias name="x" alias="ooo" />-->
+</beans>
