@@ -1,4 +1,4 @@
-package home.bruce;
+package home.bruce.bean;
 
 import home.bruce.bean.Dragon;
 import org.springframework.beans.factory.FactoryBean;

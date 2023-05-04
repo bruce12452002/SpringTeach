@@ -1,8 +1,8 @@
-package home.bruce;
+package home.bruce.bean;
 
 import home.bruce.bean.Dragon;
 
-public class FactoryMethod {
+public class FactoryMethod1 {
     public static Dragon getDragon() {
         System.out.println("getDragon()");
         return new Dragon();

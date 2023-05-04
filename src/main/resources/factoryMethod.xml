@@ -3,19 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="d1" class="home.bruce.FactoryMethod" factory-method="getDragon" />
-    <bean id="d2" class="home.bruce.FactoryMethod" factory-method="getDragon">
+    <bean id="d1" class="home.bruce.bean.FactoryMethod1" factory-method="getDragon" />
+    <bean id="d2" class="home.bruce.bean.FactoryMethod1" factory-method="getDragon">
         <constructor-arg index="0" name="str" value="龍" />
         <constructor-arg index="1" name="i" value="81" />
     </bean>
 
-    <bean id="factory" class="home.bruce.FactoryMethod" />
+    <bean id="factory" class="home.bruce.bean.FactoryMethod1" />
     <bean id="d3" factory-bean="factory" factory-method="getDragon2" />
     <bean id="d4" factory-bean="factory" factory-method="getDragon2">
         <constructor-arg index="1" name="i" value="18" />
         <constructor-arg index="0" name="str" value="龍二" />
     </bean>
 
-    <bean id="d5" class="home.bruce.FactoryMethod2" />
+    <bean id="d5" class="home.bruce.bean.FactoryMethod2" />
 
 </beans>

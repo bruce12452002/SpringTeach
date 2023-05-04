@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="d" class="home.bruce.bean.Dog" autowire-candidate="false"/>
+    <bean id="d2" class="home.bruce.bean.Dog" scope="prototype"/>
+
+    <bean id="d3" class="home.bruce.bean.FactoryMethodDog" autowire-candidate="false" scope="prototype"
+          factory-method="getDog">
+        <constructor-arg index="0" name="title">
+            <null/>
+        </constructor-arg>
+        <constructor-arg index="1" name="age">
+            <null/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="factory" class="home.bruce.bean.FactoryMethodDog"/>
+    <bean id="d4" factory-bean="factory" scope="prototype" autowire-candidate="false" factory-method="getDog2">
+        <constructor-arg index="0" name="title">
+            <null/>
+        </constructor-arg>
+        <constructor-arg index="1" name="age">
+            <null/>
+        </constructor-arg>
+    </bean>
+</beans>
