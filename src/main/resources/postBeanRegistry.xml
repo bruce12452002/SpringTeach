@@ -4,5 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="p" class="home.bruce.bean.Pig"/>
-    <bean id="mb" class="home.bruce.lesson2.advanced.MyBeanFactoryPostProcessor"/>
+    <bean id="mp" class="home.bruce.lesson2.advanced.MyBeanDefinitionRegistryPostProcessor"/>
+
+    <!-- 註解打開也會被調用-->
+<!--    <bean id="mb" class="home.bruce.lesson2.advanced.MyBeanFactoryPostProcessor"/>-->
 </beans>

@@ -17,7 +17,7 @@
     </bean>
 
     <bean id="factory" class="home.bruce.bean.FactoryMethodDog"/>
-    <bean id="d4" factory-bean="factory" scope="prototype" autowire-candidate="false" factory-method="getDog2">
+    <bean id="d4" factory-bean="factory" autowire-candidate="false" scope="prototype" factory-method="getDog2">
         <constructor-arg index="0" name="title">
             <null/>
         </constructor-arg>

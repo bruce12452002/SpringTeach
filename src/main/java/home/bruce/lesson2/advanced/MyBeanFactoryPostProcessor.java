@@ -1,4 +1,4 @@
-package home.bruce.lesson3;
+package home.bruce.lesson2.advanced;
 
 import home.bruce.bean.Dog;
 import org.springframework.beans.BeansException;
@@ -19,7 +19,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
         BeanDefinition beanDefinition = beanFactory.getBeanDefinition("p");
         beanDefinition.setBeanClassName("home.bruce.bean.Dragon");
 
-        // 動態注入到容器
+        // 將 Dog 動態注入到容器
         BeanDefinition root = new RootBeanDefinition();
         root.setBeanClassName("home.bruce.bean.Dog");
         DefaultListableBeanFactory defaultListableBeanFactory = (DefaultListableBeanFactory) beanFactory;
