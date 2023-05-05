@@ -9,7 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 public class Dog implements Animal {
     private String title;
     private int age;
@@ -17,5 +16,9 @@ public class Dog implements Animal {
     @Override
     public String getName() {
         return "狗";
+    }
+
+    public Dog() {
+        System.out.println("Dog 無參建構子");
     }
 }
