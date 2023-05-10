@@ -3,7 +3,6 @@ package home.bruce.lesson3;
 import home.bruce.lesson3.bean.Yellow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-@Configuration
+
 @Component // <bean>
 /* 以下四個 annotation 裡面都有 @Component，功能和 @Component 一樣
     @Controller
@@ -63,7 +62,7 @@ public class SpringScan {
             System.out.println(s);
         }
 
-        SpringScan sa = context.getBean("springScan", SpringScan.class);
+        SpringScan sa = context.getBean(SpringScan.class);
         System.out.println(sa.getId() + "=" + sa.getName());
         context.close();
     }

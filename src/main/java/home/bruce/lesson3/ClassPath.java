@@ -18,7 +18,7 @@ public class ClassPath {
     @Value("${key}")
     private int id;
 
-    @Value("${key2}")
+//    @Value("${key2}")
     private String name;
 
 

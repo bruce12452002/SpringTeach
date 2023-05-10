@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+
+
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="myAop" class="home.bruce.lesson5.bean.MyAopImpl"/>
+    <bean id="myServiceImpl" class="home.bruce.lesson5.service.MyServiceImpl"/>
+
+    <aop:config>
+        <!-- aop:pointcut 可設定多個-->
+        <aop:pointcut id="my_first_point_cut"
+                      expression="execution(void home.bruce.lesson5.service.MyService.display2(String))"/>
+
+        <aop:aspect ref="myAop">
+            <aop:before method="before" pointcut-ref="my_first_point_cut"/>
+            <aop:after method="after" pointcut-ref="my_first_point_cut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
