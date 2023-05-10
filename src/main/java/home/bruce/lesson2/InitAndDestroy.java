@@ -16,7 +16,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class InitAndDestroy {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("initAndDestroy.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ioc/initAndDestroy.xml");
         context.close(); // scope="singleton" 且有關閉才會調用 destroy-method 的方法，但 ApplicationContext 沒有關閉方法
     }
 }

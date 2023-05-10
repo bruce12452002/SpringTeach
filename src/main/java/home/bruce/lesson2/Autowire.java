@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Autowire {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("autowire.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/autowire.xml");
 //        ApplicationContext context = new ClassPathXmlApplicationContext("autowire2.xml");
 
         AutowirePractice ap = context.getBean("ap", AutowirePractice.class);

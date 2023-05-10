@@ -40,7 +40,7 @@ public class MultiAutowired {
     }
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring_scan.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/spring_scan.xml");
         MultiAutowired ma = context.getBean("multiAutowired", MultiAutowired.class);
         XxxServiceImpl xs1 = context.getBean("xxxServiceImpl", XxxServiceImpl.class);
         XxxServiceImpl2 xs2 = context.getBean("xxxServiceImpl2", XxxServiceImpl2.class);

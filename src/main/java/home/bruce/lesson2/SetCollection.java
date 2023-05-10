@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class SetCollection {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("propertyPractice.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/propertyPractice.xml");
         PropertyPractice pp = context.getBean("pp", PropertyPractice.class);
         System.out.println(pp.getStrOfList());
         System.out.println(pp.getAnimalOfList());

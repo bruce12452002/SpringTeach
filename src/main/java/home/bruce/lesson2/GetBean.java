@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class GetBean {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("getBean.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/getBean.xml");
 
         Dog d1 = (Dog) context.getBean("d");
         Dog d2 = context.getBean("d", Dog.class);

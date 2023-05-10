@@ -5,6 +5,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Constructor {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("constructor.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/constructor.xml");
     }
 }

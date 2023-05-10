@@ -12,7 +12,7 @@ public class Environment {
         System.setProperty("spring.profiles.active", "dev");
 //        System.setProperty("spring.profiles.active", "test");
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("environment.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/environment.xml");
         context.getBean("ap", AutowirePractice.class); // 所有環境都可以
         context.getBean("d", Dragon.class); // 只有 dev 環境可以
         context.getBean("p", Pig.class); // 只有 test 環境可以

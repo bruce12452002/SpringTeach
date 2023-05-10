@@ -27,7 +27,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     }
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beanFactoryPostProcessor.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/beanFactoryPostProcessor.xml");
         System.out.println(context.getBean("p"));
         System.out.println(context.getBean("d"));
         System.out.println(context.getBean(Dog.class));

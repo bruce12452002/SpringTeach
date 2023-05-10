@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Scope {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("scope.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/scope.xml");
         Monkey m1 = context.getBean("m", Monkey.class);
         Monkey m2 = context.getBean("m", Monkey.class);
         System.out.println(m1 == m2);

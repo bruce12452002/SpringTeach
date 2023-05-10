@@ -58,7 +58,7 @@ public class SpringScan {
     }
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring_scan.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ioc/spring_scan.xml");
         for (String s : context.getBeanDefinitionNames()) {
             System.out.println(s);
         }

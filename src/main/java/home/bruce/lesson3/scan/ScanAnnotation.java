@@ -24,7 +24,7 @@ public class ScanAnnotation implements BeanDefinitionRegistryPostProcessor {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        ApplicationContext context = new ClassPathXmlApplicationContext("scan.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/scan.xml");
         System.out.println(context.getBean("Aaa", Aaa.class));
         System.out.println(context.getBean("SubA", SubA.class));
     }

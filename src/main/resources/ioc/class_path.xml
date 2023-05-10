@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="home.bruce.lesson3"/>
+
+    <!-- classpath 路徑在：專案路徑裡的 target/classes -->
+
+    <!-- key 相同，後者蓋前者；classpath: 和 classpath:/ 是一樣的，相對路徑不用寫 classpath -->
+    <context:property-placeholder location="classpath:ioc/xxx.properties, ioc/xxx2.properties"/>
+
+    <!-- 所有 classpath 下的 xxx.properties，如有重覆的 key，以第一個為主；**/表示遞迴多個目錄查找，連 jar 檔裡也會找 -->
+<!--    <context:property-placeholder location="classpath*:**/xxx.properties"/>-->
+
+    <!-- 所有 classpath 下副檔名是 properties-->
+<!--    <context:property-placeholder location="classpath*:**/*.properties"/>-->
+</beans>

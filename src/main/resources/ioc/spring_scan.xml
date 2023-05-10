@@ -10,5 +10,5 @@
 
     <!-- 追原碼的方法，在 spring-context/META-INF/spring.handlers -->
     <context:component-scan base-package="home.bruce.lesson3"/>
-    <context:property-placeholder location="classpath:xxx.properties"/>
+    <context:property-placeholder location="classpath:ioc/xxx.properties"/>
 </beans>

@@ -18,7 +18,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class IDAndName {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("idAndName.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/idAndName.xml");
         Monkey m1 = context.getBean("home.bruce.lesson1.service.impl.Monkey#0", Monkey.class);
         Monkey m2 = context.getBean("home.bruce.lesson1.service.impl.Monkey", Monkey.class);
 //        Monkey m3 = context.getBean("z", Monkey.class);

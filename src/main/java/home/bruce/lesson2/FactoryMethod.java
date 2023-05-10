@@ -15,7 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class FactoryMethod {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("factoryMethod.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ioc/factoryMethod.xml");
         // context.getBean("d1", FactoryMethod.class); // 取得的是 factory-method 設定的方法，裡面的回傳值
         context.getBean("d1", Dragon.class);
         context.getBean("d2", Dragon.class);

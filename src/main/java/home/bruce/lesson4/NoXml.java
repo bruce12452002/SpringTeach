@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 
 @Component
 @ComponentScan({"home.bruce.lesson3", "home.bruce.lesson4"})
-@PropertySource("classpath:xxx.properties")
+@PropertySource("classpath:ioc/xxx.properties")
 @Import(Dog.class) // 和 @Bean 差不多，但不能給屬性賦值
 public class NoXml {
     public static void main(String[] args) {

@@ -29,6 +29,6 @@ public class XxxAware implements ApplicationContextAware, BeanFactoryAware, Bean
     }
 
     public static void main(String[] args) {
-        new ClassPathXmlApplicationContext("aware.xml");
+        new ClassPathXmlApplicationContext("ioc/aware.xml");
     }
 }

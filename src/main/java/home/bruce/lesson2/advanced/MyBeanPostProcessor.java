@@ -29,7 +29,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     }
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beanPostProcessor.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/beanPostProcessor.xml");
         Dog d = context.getBean("d", Dog.class);
         System.out.println(d.getAge());
     }

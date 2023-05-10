@@ -29,7 +29,7 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
 
     public static void main(String[] args) {
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("beanDefinitionRegistryPostProcessor.xml");
+                new ClassPathXmlApplicationContext("ioc/beanDefinitionRegistryPostProcessor.xml");
         System.out.println(context.getBean("p"));
         System.out.println(context.getBean("d"));
         System.out.println(context.getBean(Dog.class));
