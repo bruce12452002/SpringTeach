@@ -4,22 +4,47 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-
-
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <bean id="myAop" class="home.bruce.lesson5.bean.MyAopImpl"/>
     <bean id="myServiceImpl" class="home.bruce.lesson5.service.MyServiceImpl"/>
 
-    <aop:config>
-        <!-- aop:pointcut 可設定多個-->
+    <!-- proxy-target-class="true" 表示強制使用CGLIB 動態代理；否則是 JDK 的 動態代理 -->
+    <!-- JDK 動態代理一定要有介面；CGLIB 可不需要介面，但類別不可是 final -->
+    <!-- 如果使用 JDK 動態代理，但沒有介面，還是會用 CGLIB 動態代理 -->
+    <aop:config proxy-target-class="true">
+        <!-- aop:pointcut 可設定多個, 修飾子(public)可不寫-->
+        <!-- 回傳值、包、類別、方法都可以用 * 表示任何；.. 表示此包和此包的子包，但用在參數上表示任何參數；參數也可用 *，也是任何參數的意思 -->
+        <!-- 例一 -->
+        <!-- * *..*.*(..) -->
+        <!-- 全部 -->
+        <!-- 例二 -->
+        <!-- * home.bruce.lesson5.service..MyService.*(..) -->
+        <!-- home.bruce.lesson5.service 包和子包有 MyService 類別的任何方法、任何參數、任何回傳值 -->
+        <!-- 例三 -->
+        <!-- * home.bruce.lesson5.service.*.*(..) -->
+        <!-- home.bruce.lesson5.service 包的任何類別的任何方法、任何參數、任何回傳值 -->
+        <!-- 例四 -->
+        <!-- * home.bruce.lesson5.service..*.*(..) -->
+        <!-- home.bruce.lesson5.service 包「和子包」的任何類別的任何方法、任何參數、任何回傳值 -->
         <aop:pointcut id="my_first_point_cut"
                       expression="execution(void home.bruce.lesson5.service.MyService.display2(String))"/>
 
         <aop:aspect ref="myAop">
             <aop:before method="before" pointcut-ref="my_first_point_cut"/>
-            <aop:after method="after" pointcut-ref="my_first_point_cut"/>
+            <aop:after method="after" pointcut="execution(void home.bruce.lesson5.service.MyService.display2(String))"/>
+            <aop:around method="around" pointcut-ref="my_first_point_cut"/>
+
+            <!-- 使用 after-throwing 時，在通知的方法加上 Throwable 參數時有個參數名，參數名稱要寫在這裡的 throwing 裡-->
+            <!-- <aop:after-throwing method="xxx" pointcut-ref="my_first_point_cut" throwing="e"/>-->
+
+            <!-- aop: 後的通知有五種-->
+            <!-- before：目標方法之前執行 -->
+            <!-- after：目標方法之後執行，不管有無例外都執行 -->
+            <!-- around：環繞通知，目標方法之前之後都執行，但目標方法拋出例外，後面就不執行了 -->
+            <!-- after-returning：目標方法之後執行，但目標方法拋出例外就不執行了 -->
+            <!-- after-throwing：目標方法拋出例外才執行 -->
         </aop:aspect>
     </aop:config>
 </beans>
