@@ -30,7 +30,7 @@ public class HalfAnnotationImpl {
      * ProceedingJoinPoint：使用 proceed 方法，執行目標的方法
      * Throwable：使用在例外通知
      */
-    @Around("common()")
+    @Around("HalfAnnotationImpl.common()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("anno-環前");
         Object proceed = joinPoint.proceed();
