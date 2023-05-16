@@ -17,6 +17,6 @@
     </bean>
 
     <!-- transaction-manager 預設找的是 transactionManager-->
-    <tx:annotation-driven transaction-manager="txManager"/> <!-- 支援 @Transactional -->
+    <tx:annotation-driven transaction-manager="txManager"/> <!-- 掃瞄 @Transactional -->
 
 </beans>
