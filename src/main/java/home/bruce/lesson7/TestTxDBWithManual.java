@@ -12,7 +12,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 @Component
-public class TestTxDB {
+public class TestTxDBWithManual {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -25,7 +25,7 @@ public class TestTxDB {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(JdbcTemplateConfig.class);
         // Stream.of(context.getBeanDefinitionNames()).forEach(System.out::println);
-        TestTxDB testTxDB = context.getBean(TestTxDB.class);
+        TestTxDBWithManual testTxDB = context.getBean(TestTxDBWithManual.class);
         testTxDB.update(1000);
     }
 

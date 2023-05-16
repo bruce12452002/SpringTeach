@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="txDBWithXml" class="home.bruce.lesson8.TestTxDBWithXml"/>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <context:property-placeholder location="classpath:tx/jdbc.properties"/>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <!-- timeout：操時時間，單位為秒，-1 表示不操時 -->
+            <!-- read-only：是否只讀，查詢時有可能增加效能，如果設為 true，那方法裡不能對資料庫作寫的動作，否則報錯 -->
+
+            <!-- ========== isolation：4 種隔離層級 ========== -->
+            <!-- DEFAULT：以資料庫為準，mysql 預設是 RR；oracle 預設是 RC -->
+            <!-- READ_UNCOMMITTED：允許事務讀取其它「未」 commit 的資料，有 dirty read、non-repeatable read、phantom read 問題 -->
+            <!-- READ_COMMITTED：允許事務讀取其它「已」 commit 的資料，有 non-repeatable read、phantom read 問題 -->
+            <!-- REPEATABLE_READ：同一個事務在多次讀取的資料必須相同，有 phantom read 問題 -->
+            <!-- SERIALIZABLE：完整的隔離層級，但效能很差 -->
+
+            <!-- dirty read：讀到未提交的資料，所以是髒讀 -->
+            <!-- non-repeatable：讀取多次，會讀到不同的資料，因為中間有可能被其他事務提交了 -->
+            <!-- phantom read：讀取一個整體，例如 count，多次 count 的筆數不一樣 -->
+
+
+            <!-- ========== propagation：7 種傳方法的傳播行為，也就是說兩個方法都可以有或沒有事務，
+            a 調用 b 時，事務是否給 b，又或者 a 沒事務，b 又如何使用事務 ========== -->
+
+            <!-- REQUIRED：預設，支援目前的事務，如果沒有就建立一個新的事務 -->
+            <!-- SUPPORTS：支援目前的事務，如果沒有就以非事務的方式執行 -->
+            <!-- MANDATORY：方法必須在事務中進行，否則拋出例外 -->
+            <!-- REQUIRES_NEW：建立一個新的事務，如果目前有一個事務就先暫停，並開一個新的事務執行 -->
+
+            <!-- NOT_SUPPORTED：不可在事務中進行，如果有的話就暫停目前的事務 -->
+            <!-- NEVER：不可在事務中進行，如果有的話就拋出例外 -->
+
+            <!-- NESTED：父事務回滾，子事務也會回滾，如果沒有父子事務，和預設的 REQUIRED 一樣 -->
+
+            <!-- tx:method 可寫多個-->
+            <tx:method name="*" propagation="MANDATORY"/> <!-- 哪些方法才能使用 advice，add* 表示 add 開頭的方法-->
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="pc" expression="execution(* home.bruce.lesson7..*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pc"/>
+    </aop:config>
+</beans>
